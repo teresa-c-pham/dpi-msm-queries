@@ -1,17 +1,19 @@
 class DirectorsController < ApplicationController
   def show_all
-    render({ :template => "misc_templates/directors"})
+    render({ :template => "director_templates/directors"})
   end
 
   def youngest
-    render({ :template => "misc_templates/youngest"})
+    render({ :template => "director_templates/youngest"})
   end
 
   def eldest
-    render({ :template => "misc_templates/eldest"})
+    render({ :template => "director_templates/eldest"})
   end
 
   def show
-    render({ :template => "misc_templates/director"})
+    id = request.url[/directors\/.*/][10..]
+    @director = Director.all.where(:id => id).at(0)
+    render({ :template => "director_templates/director"})
   end
 end

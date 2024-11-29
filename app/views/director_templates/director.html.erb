@@ -1,0 +1,38 @@
+<h1>Director #<%= @director.id %></h1>
+<a href="/directors">Go back</a>
+
+<hr>
+
+<dl>
+  <dt>Name</dt>
+  <dd><%= @director.name %></dd>
+
+  <dt>Dob</dt>
+  <dd><%= @director.dob %></dd>
+
+  <dt>Bio</dt>
+  <dd><%= @director.bio %></dd>
+
+  <dt>Image</dt>
+  <dd><img width="30%" height="50%" src="<%= @director.image %>" alt="director_image"></dd>
+
+  <dt>Created at</dt>
+  <dd><%= @director.created_at %></dd>
+
+  <dt>Updated at</dt>
+  <dd><%= @director.updated_at %></dd>
+</dl>
+
+<hr>
+
+<h3>Filmography</h3>
+<table border=1>
+  <tr>
+    <th>ID</th>
+    <th>Image</th>
+    <th>Title</th>
+    <th>Year</th>
+    <th>Director</th>
+    <th></th>
+  </tr>
+</table>
