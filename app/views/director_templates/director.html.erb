@@ -35,4 +35,15 @@
     <th>Director</th>
     <th></th>
   </tr>
+
+  <% @films.each do |film| %>
+    <tr>
+      <td><%= film.id %></td>
+      <td style="max-width: 250px;"><img style="width: 100%; height: 100%;" src="<%= film.image %>" alt=""></td>
+      <td><%= film.title %></td>
+      <td><%= film.year %></td>
+      <td><%= Director.all.where({:id => film.director_id}).at(0).name %></td>
+      <td><a href="/movies/<%= film.id %>">Show details</a></td>
+    </tr>
+  <% end %>
 </table>

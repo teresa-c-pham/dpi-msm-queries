@@ -16,6 +16,8 @@ class DirectorsController < ApplicationController
   def show
     id = request.url[/directors\/.*/][10..]
     @director = Director.all.where(:id => id).at(0)
+
+    @films = Movie.all.where(:director_id => @director.id)
     render({ :template => "director_templates/director"})
   end
 end
