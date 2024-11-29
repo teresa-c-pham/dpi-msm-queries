@@ -4,10 +4,12 @@ class DirectorsController < ApplicationController
   end
 
   def youngest
+    @youngest = Director.all.where.not({:dob => nil}).order({:dob => :desc}).at(0)
     render({ :template => "director_templates/youngest"})
   end
 
   def eldest
+    @eldest = Director.all.where.not({:dob => nil}).order({:dob => :asc}).at(0)
     render({ :template => "director_templates/eldest"})
   end
 
